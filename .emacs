@@ -68,12 +68,14 @@
 
 ;; laba capture
 (setq org-capture-templates
-      '(("L" "LABA" entry (file+headline "~/ORGNOTES/notes.org" "lange bank")
-         "* LABA %?\n %U\n %a DEADLINE: %^t ":time-prompt t)
-	("D" "TODO" entry (file+headline "~/ORGNOTES/notes.org" "to do")
-         "* TODO %?\n %U\n %a DEADLINE: %^t ":time-prompt t)
-	("B" "BDAY" entry (file+headline "~/ORGNOTES/notes.org" "Birthday")
-         "* BDAY %^{PROMPT} DEADLINE: %^t ":time-prompt t)))
+      '(("L" "LABA" entry (file+headline "~/ORGNOTES/notes.org" "Long bank")
+         "* LABA %u %^{PROMPT|Text} DEADLINE: %^t %^G":time-prompt t)
+	("D" "TODO" entry (file+headline "~/ORGNOTES/notes.org" "To do")
+         "* TODO %u %^{PROMPT|Text} DEADLINE: %^t %^G":time-prompt t)
+	("B" "BDAY" entry (file+headline "~/ORGNOTES/notes.org" "Birthdays")
+         "* BDAY %^{PROMPT} DEADLINE: %^t %^G":time-prompt t)
+	("N" "tagged note" entry (file+headline "~/ORGNOTES/notes.org" "tag-notes")
+         "* Tnote %t %^{PROMPT|Note} %^G")))
 
 ;;disable splash screen and startup message
 (setq inhibit-startup-message t) 
